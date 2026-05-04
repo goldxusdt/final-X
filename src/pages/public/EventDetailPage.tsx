@@ -18,7 +18,7 @@ import {
   Info
 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
-import { SEOHead } from '@/utils/seo';
+import { SEOHead, generateStructuredData } from '@/utils/seo';
 import { format } from 'date-fns';
 import DOMPurify from 'dompurify';
 import { toast } from 'sonner';
@@ -29,6 +29,22 @@ export default function EventDetailPage() {
   const [event, setEvent] = useState<EventListing | null>(null);
   const [loading, setLoading] = useState(true);
   const [isPast, setIsPast] = useState(false);
+
+  const eventSchema = event ? generateStructuredData('Event', {
+    name: event.title,
+    description: event.description.replace(/<[^>]*>?/gm, '').substring(0, 160),
+    startDate: `${event.event_date}T${event.event_time}`,
+    location: {
+      '@type': 'VirtualLocation',
+      url: window.location.href
+    },
+    image: event.featured_image_url || `${window.location.origin}/logo.svg`,
+    organizer: {
+      '@type': 'Organization',
+      name: 'Gold X Usdt',
+      url: window.location.origin
+    }
+  }) : undefined;
 
   useEffect(() => {
     const loadData = async () => {
@@ -72,6 +88,9 @@ export default function EventDetailPage() {
       <SEOHead 
         title={`${event.seo_meta_title || event.title} | Gold X Usdt Events`}
         description={event.seo_meta_description || event.description.replace(/<[^>]*>?/gm, '').substring(0, 160)}
+        image={event.featured_image_url || undefined}
+        type="website"
+        schemas={eventSchema ? [eventSchema] : []}
       />
 
       <div className="max-w-6xl mx-auto px-4 md:px-8">

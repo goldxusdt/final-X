@@ -13,7 +13,7 @@ import {
   Tag
 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
-import { SEOHead } from '@/utils/seo';
+import { SEOHead, generateArticleSchema } from '@/utils/seo';
 import { format } from 'date-fns';
 import DOMPurify from 'dompurify';
 import { toast } from 'sonner';
@@ -24,6 +24,14 @@ export default function BlogPostPage() {
   const [post, setPost] = useState<BlogPost | null>(null);
   const [relatedPosts, setRelatedPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
+
+  const articleSchema = post ? generateArticleSchema({
+    title: post.title,
+    description: post.excerpt || post.title,
+    image: post.featured_image_url || `${window.location.origin}/logo.svg`,
+    author: post.author,
+    publishedDate: post.publication_date,
+  }) : undefined;
 
   useEffect(() => {
     const loadData = async () => {
@@ -69,6 +77,10 @@ export default function BlogPostPage() {
       <SEOHead 
         title={`${post.seo_meta_title || post.title} | Gold X Usdt Blog`}
         description={post.seo_meta_description || post.excerpt || post.title}
+        image={post.featured_image_url || undefined}
+        type="article"
+        publishedTime={post.publication_date}
+        schemas={articleSchema ? [articleSchema] : []}
       />
 
       <div className="max-w-4xl mx-auto px-4 md:px-8">

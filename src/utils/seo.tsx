@@ -19,6 +19,7 @@ export interface SEOProps {
   modifiedTime?: string;
   noindex?: boolean;
   canonical?: string;
+  schemas?: string[]; // Array of JSON-LD strings
 }
 
 /**
@@ -40,13 +41,14 @@ export function SEOHead({
   publishedTime,
   modifiedTime,
   noindex = false,
-  canonical
+  canonical,
+  schemas = []
 }: SEOProps) {
   const { settings: platformSettings } = useSettings();
   const { t, i18n } = useTranslation();
 
-  const siteUrl = window.location.origin;
-  const fullUrl = url ? `${siteUrl}${url}` : window.location.href;
+  const siteUrl = typeof window !== 'undefined' ? window.location.origin : 'https://goldxusdt.com';
+  const fullUrl = url ? `${siteUrl}${url}` : (typeof window !== 'undefined' ? window.location.href : siteUrl);
   
   // Use platform settings or defaults, with fallback to translations
   const siteName = platformSettings?.site_title || t('common.site_title', 'Gold X Usdt');
@@ -73,6 +75,9 @@ export function SEOHead({
     'en': 'en_US'
   };
 
+  // Add default organization schema if none provided
+  const finalSchemas = schemas.length > 0 ? schemas : [organizationSchema, websiteSchema];
+
   return (
     <Helmet>
       {/* Basic Meta Tags */}
@@ -90,7 +95,7 @@ export function SEOHead({
           key={lang}
           rel="alternate" 
           hrefLang={lang} 
-          href={`${siteUrl}${url || window.location.pathname}${window.location.search}`} 
+          href={`${siteUrl}${url || (typeof window !== 'undefined' ? window.location.pathname : '')}${typeof window !== 'undefined' ? window.location.search : ''}`} 
         />
       ))}
       <link rel="alternate" hrefLang="x-default" href={fullUrl} />
@@ -118,6 +123,13 @@ export function SEOHead({
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
       <meta name="theme-color" content={platformSettings?.primary_color || '#D4AF37'} />
+      
+      {/* Structured Data */}
+      {finalSchemas.map((schema, index) => (
+        <script key={`schema-${index}`} type="application/ld+json">
+          {schema}
+        </script>
+      ))}
       
       {/* Google Analytics 4 (GA4) */}
       {gaId && (

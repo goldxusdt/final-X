@@ -8,7 +8,7 @@ Gold X Usdt
 
 ### 1.2 Application Description
 
-A mobile-optimized multi-level marketing (MLM) platform focused on Gold USDT investment, featuring automated ROI distribution, 15-level referral commission tracking (with performance-based unlocking mechanism), wallet management, secure payment processing, enhanced coupon code system with advanced redemption rules (supporting transaction type restrictions, plan-specific targeting, single-use enforcement per user with proper validation and expiration handling, real-time discount preview, bulk coupon generation, scheduled activation/deactivation for marketing campaigns, manual deletion functionality, auto-deletion upon usage limit or expiry with proper ROI wallet balance display, bulk deletion of used coupons, comprehensive analytics dashboard with user demographic insights and coupon type comparison displaying accurate metrics, automated tier-based and performance-based coupon generation, and coupon history tracking), investment and return calculator (with interactive animated charts via Recharts showing ROI growth trends and referral commission breakdown, and manual user input for Monthly ROI calculations in Elite Performance section), referral level calculator, team growth simulator in user dashboard (projecting network earnings across all 15 referral levels with multi-year projection charts), PDF export and email sharing of simulation results, network leader leaderboard on dashboard (ranking top members by unlocked referral levels), unified wealth building projection dashboard accessible from earnings analysis page (syncing personal investment calculator with team growth simulator), comprehensive admin control panel for managing user performance metrics and ROI configuration, advanced admin settings (SEO, branding, analytics, site configuration, social media URL configuration), SMTP credential management (with real-time backend propagation), TRC-20/BEP-20 auto-confirmation API configuration, professionally designed transactional email templates (registration OTP verification and password reset), calculator results export to PDF and email sharing, post-development code audit and quality assurance process, complete deployment configuration for Netlify, Vercel and other compatible platforms, Supabase native backend using PostgreSQL as primary database, complete backend documentation service (outputting all data, functions, tables, SQL definitions and export values in CSV file format), automated daily ROI distribution system using Supabase Edge Functions for investment plans with 24-hour timer automatic restart mechanism and ROI wallet balance update, downline analysis page, network analysis page integrated as dedicated tab within referral page (with functional tier breakdown displaying populated user details and correct data fetching), floating social share component on blog and events pages, dynamic social media URLs fetched from admin settings, multi-language toggle supporting English, Spanish, Arabic, Tamil, Hindi and French (auto-detecting language based on IP on first visit), automated OCR system on KYC document upload page with document lockdown after upload preventing changes, enhanced admin KYC management page (AI-extracted OCR text displayed side-by-side with uploaded documents, with KYC text data and document images export to PDF or Excel, admin manual KYC document upload for specific users with approval marking visible on user side, and dashboard section displaying user catalog with document types and verification statuses), comprehensive security hardening layer with protection against all CWE Top 25 vulnerabilities and extended CWE catalog threats, dedicated INR/USDT currency display subdomain page (displaying real-time market rates via Supabase Edge Function cron job), admin-side rate monitoring and alerts, enhanced user deposit process (with admin-confirmed fund transfer and coupon code application with correct discount calculation), automated platform rate update settings, browser push notifications for admin rate fluctuation alerts, security center with real-time refresh and enhanced auth security logs (including detailed geolocation data and device fingerprinting), enhanced admin audit log detail view (side-by-side JSON diff comparison), multi-language content support for dynamic sections (blog posts and investment plans) with database schema and API updates, locale-specific SEO metadata optimization, enhanced two-factor authentication system for admin accounts (supporting both Email OTP and Google Authenticator with user-selectable verification method), enhanced input sanitization and injection protection, HTTPS-only enforcement (with HTTP 301 redirect), frontend performance optimization, FAQ section with admin management system synchronized with homepage, systematic documentation upload failure troubleshooting and resolution, admin security log section tracking MFA events (enable, disable, recovery via backup codes, method selection), PDF export functionality for weekly security audit reports, security audit page, security center page and style guide step-by-step user guide documentation, comprehensive anti-hacking security framework (protecting against all major attack vectors including SQL injection, XSS, CSRF, SSRF, RCE, insecure deserialization, business logic vulnerabilities, API abuse, malicious file uploads, DoS attacks, dependency vulnerabilities, path traversal, command injection, buffer overflow, integer overflow, authentication bypass, authorization flaws, session management issues, cryptographic failures, information disclosure, race conditions, and all CWE Top 25 plus extended CWE catalog threats), advanced referral dashboard displaying 15-level referral network tree view and detailed commission statistics (with resolved Failed to Load error and functional data loading), network genealogy tree export as high-resolution image or PDF for team presentations, comprehensive transaction history page for users to track all deposits, withdrawals and ROI records in one place, complete Edge Function error handling mechanism (with comprehensive capture and friendly prompts for network errors, timeout errors, HTTP errors, response format errors, etc.), admin security dashboard (visualizing 2FA attempt distribution over the past 24 hours and potential brute force attacks), browser push notification system for website users (including automatic notifications for specific system events such as balance reaching threshold, ROI arrival, withdrawal status updates, and daily ROI payouts), enhanced Telegram notification system for routing administrative alerts to a designated Telegram account (with interactive functionality allowing administrators to directly reply to support tickets or approve withdrawal requests via Telegram), secure export feature for enhanced security audit logs supporting PDF, CSV and Excel formats with strict compliance and tamper-evident controls, notification recall functionality allowing administrators to cancel sent global notifications within a configurable time window, real-time notification preview for mobile and desktop devices on notification composition page, custom notification category management system for dynamic notification type organization and filtering, notification history and system logs CSV export functionality for auditing purposes, Telegram webhook verification tool for testing bot message reception, comprehensive investment plan management system with full CRUD operations, automated validation, lifecycle management, unique wallet address generation per plan, special fixed plan configuration, detailed analytics reports for admin dashboard showing plan performance, active investment volume and projected payouts, visible deposit fee and refund duration display, date-time based investment duration tracking with automatic plan deletion upon expiration and transfer to investment history, automatic days and hours remaining calculation when editing investment plans based on chosen expiration date, user dashboard refund countdown timer showing remaining time based on plan duration and deposit timestamp, user dashboard active plans with automatic Next Payout timer restart and immediate ROI credit upon cycle completion, bonus reward withdrawal countdown timer, enhanced admin panel with plan name filtering for deposits and withdrawals, centralized pending actions page, corrected CSV/PDF export functionality, fully functional live refresh and manual refresh buttons, automatic first-user admin assignment with enhanced security features, dedicated coupon performance analytics dashboard, enhanced admin dashboard with key financial metrics and pending refunds management, fully editable landing page settings in admin panel (covering all sections including Home, About, Services, Slider, Experience Elite Growth slider with title/description/images/button configuration, and all other sections with functional Add Feature button in Service Section), manual user input for Monthly ROI in Elite Performance section of ROI simulator, full community data removal functionality, customizable withdrawal cooling periods and cycle durations in platform settings, identity-based referral system tracking users by Email ID and Username instead of deposit amounts, strict session security policy with one-hour maximum session duration and automatic logout after 15 minutes of inactivity for all users and admins, streamlined KYC document upload interface with document-type-specific upload fields and document lockdown after upload, optimized admin panel loading performance, synchronized FAQ management system between homepage and admin panel, linear sidebar menu structure in admin panel, corrected coupon usage count display and all coupon-related functionality fixes, comprehensive mobile responsiveness optimization ensuring all admin management and user investment features work seamlessly on smaller screens, mobile push notifications for withdrawal status updates and daily ROI payouts, deposit history page displaying all user deposits, admin investment history page displaying expired plans with creation date, expiration date, participant count, and total deposit amount, user-initiated investment plan deletion with automatic fund transfer to main deposit wallet (for plans with no active investments), internal wallet swap functionality allowing users to transfer funds from ROI and bonus wallets to main deposit wallet, announcements page accessible to both users and admins with admin CRUD operations and live updates, duplicate deposit prevention logic ensuring single transaction recording on multiple clicks, comprehensive code refactoring and rewrite for complete web application stack (front-end, back-end, and server-side code) to eliminate runtime, authorization, and connection errors while strictly preserving all existing functionality, data structures, and user-facing features, unified content management system (CMS) for Blog and Events sections with full CRUD operations, rich text formatting, media management, draft/publish workflow, and automatic front-end synchronization, TypeScript type safety improvements with automated any type replacement script, optimized Vite build configuration with manual code chunking for vendor bundles, production monitoring setup with Vercel Analytics, Speed Insights, and Supabase logging with critical issue alerting, Progressive Web App (PWA) support for better mobile performance and offline access, comprehensive test suite using Vitest and React Testing Library for core business logic and components, and GitHub Actions CI/CD pipeline for automated testing, linting, and deployment to Vercel and Supabase.
+A mobile-optimized multi-level marketing (MLM) platform focused on Gold USDT investment, featuring automated ROI distribution, 15-level referral commission tracking (with performance-based unlocking mechanism), wallet management, secure payment processing, enhanced coupon code system with advanced redemption rules (supporting transaction type restrictions, plan-specific targeting, single-use enforcement per user with proper validation and expiration handling, real-time discount preview, bulk coupon generation, scheduled activation/deactivation for marketing campaigns, manual deletion functionality, auto-deletion upon usage limit or expiry with proper ROI wallet balance display, bulk deletion of used coupons, comprehensive analytics dashboard with user demographic insights and coupon type comparison displaying accurate metrics, automated tier-based and performance-based coupon generation, and coupon history tracking), investment and return calculator (with interactive animated charts via Recharts showing ROI growth trends and referral commission breakdown, and manual user input for Monthly ROI calculations in Elite Performance section), referral level calculator, team growth simulator in user dashboard (projecting network earnings across all 15 referral levels with multi-year projection charts), PDF export and email sharing of simulation results, network leader leaderboard on dashboard (ranking top members by unlocked referral levels), unified wealth building projection dashboard accessible from earnings analysis page (syncing personal investment calculator with team growth simulator), comprehensive admin control panel for managing user performance metrics and ROI configuration, advanced admin settings (SEO, branding, analytics, site configuration, social media URL configuration), SMTP credential management (with real-time backend propagation), TRC-20/BEP-20 auto-confirmation API configuration, professionally designed transactional email templates (registration OTP verification and password reset), calculator results export to PDF and email sharing, post-development code audit and quality assurance process, complete deployment configuration for Netlify, Vercel and other compatible platforms, Supabase native backend using PostgreSQL as primary database, complete backend documentation service (outputting all data, functions, tables, SQL definitions and export values in CSV file format), automated daily ROI distribution system using Supabase Edge Functions for investment plans with 24-hour timer automatic restart mechanism and ROI wallet balance update, downline analysis page, network analysis page integrated as dedicated tab within referral page (with functional tier breakdown displaying populated user details and correct data fetching), floating social share component on blog and events pages, dynamic social media URLs fetched from admin settings, multi-language toggle supporting English, Spanish, Arabic, Tamil, Hindi and French (auto-detecting language based on IP on first visit), automated OCR system on KYC document upload page with document lockdown after upload preventing changes, enhanced admin KYC management page (AI-extracted OCR text displayed side-by-side with uploaded documents, with KYC text data and document images export to PDF or Excel, admin manual KYC document upload for specific users with approval marking visible on user side, and dashboard section displaying user catalog with document types and verification statuses), comprehensive security hardening layer with protection against all CWE Top 25 vulnerabilities and extended CWE catalog threats, dedicated INR/USDT currency display subdomain page (displaying real-time market rates via Supabase Edge Function cron job), admin-side rate monitoring and alerts, enhanced user deposit process (with admin-confirmed fund transfer and coupon code application with correct discount calculation), automated platform rate update settings, browser push notifications for admin rate fluctuation alerts, security center with real-time refresh and enhanced auth security logs (including detailed geolocation data and device fingerprinting), enhanced admin audit log detail view (side-by-side JSON diff comparison), multi-language content support for dynamic sections (blog posts and investment plans) with database schema and API updates, locale-specific SEO metadata optimization, enhanced two-factor authentication system for admin accounts (supporting both Email OTP and Google Authenticator with user-selectable verification method), enhanced input sanitization and injection protection, HTTPS-only enforcement (with HTTP 301 redirect), frontend performance optimization, FAQ section with admin management system synchronized with homepage, systematic documentation upload failure troubleshooting and resolution, admin security log section tracking MFA events (enable, disable, recovery via backup codes, method selection), PDF export functionality for weekly security audit reports, security audit page, security center page and style guide step-by-step user guide documentation, comprehensive anti-hacking security framework (protecting against all major attack vectors including SQL injection, XSS, CSRF, SSRF, RCE, insecure deserialization, business logic vulnerabilities, API abuse, malicious file uploads, DoS attacks, dependency vulnerabilities, path traversal, command injection, buffer overflow, integer overflow, authentication bypass, authorization flaws, session management issues, cryptographic failures, information disclosure, race conditions, and all CWE Top 25 plus extended CWE catalog threats), advanced referral dashboard displaying 15-level referral network tree view and detailed commission statistics (with resolved Failed to Load error and functional data loading), network genealogy tree export as high-resolution image or PDF for team presentations, comprehensive transaction history page for users to track all deposits, withdrawals and ROI records in one place, complete Edge Function error handling mechanism (with comprehensive capture and friendly prompts for network errors, timeout errors, HTTP errors, response format errors, etc.), admin security dashboard (visualizing 2FA attempt distribution over the past 24 hours and potential brute force attacks), browser push notification system for website users (including automatic notifications for specific system events such as balance reaching threshold, ROI arrival, withdrawal status updates, and daily ROI payouts), enhanced Telegram notification system for routing administrative alerts to a designated Telegram account (with interactive functionality allowing administrators to directly reply to support tickets or approve withdrawal requests via Telegram), secure export feature for enhanced security audit logs supporting PDF, CSV and Excel formats with strict compliance and tamper-evident controls, notification recall functionality allowing administrators to cancel sent global notifications within a configurable time window, real-time notification preview for mobile and desktop devices on notification composition page, custom notification category management system for dynamic notification type organization and filtering, notification history and system logs CSV export functionality for auditing purposes, Telegram webhook verification tool for testing bot message reception, comprehensive investment plan management system with full CRUD operations, automated validation, lifecycle management, unique wallet address generation per plan, special fixed plan configuration, detailed analytics reports for admin dashboard showing plan performance, active investment volume and projected payouts, visible deposit fee and refund duration display, date-time based investment duration tracking with automatic plan deletion upon expiration and transfer to investment history, automatic days and hours remaining calculation when editing investment plans based on chosen expiration date, user dashboard refund countdown timer showing remaining time based on plan duration and deposit timestamp, user dashboard active plans with automatic Next Payout timer restart and immediate ROI credit upon cycle completion, bonus reward withdrawal countdown timer, enhanced admin panel with plan name filtering for deposits and withdrawals, centralized pending actions page, corrected CSV/PDF export functionality, fully functional live refresh and manual refresh buttons, automatic first-user admin assignment with enhanced security features, dedicated coupon performance analytics dashboard, enhanced admin dashboard with key financial metrics and pending refunds management, fully editable landing page settings in admin panel (covering all sections including Home, About, Services, Slider, Experience Elite Growth slider with title/description/images/button configuration, and all other sections with functional Add Feature button in Service Section), manual user input for Monthly ROI in Elite Performance section of ROI simulator, full community data removal functionality, customizable withdrawal cooling periods and cycle durations in platform settings, identity-based referral system tracking users by Email ID and Username instead of deposit amounts, strict session security policy with one-hour maximum session duration and automatic logout after 15 minutes of inactivity for all users and admins, streamlined KYC document upload interface with document-type-specific upload fields and document lockdown after upload, optimized admin panel loading performance, synchronized FAQ management system between homepage and admin panel, linear sidebar menu structure in admin panel, corrected coupon usage count display and all coupon-related functionality fixes, comprehensive mobile responsiveness optimization ensuring all admin management and user investment features work seamlessly on smaller screens, mobile push notifications for withdrawal status updates and daily ROI payouts, deposit history page displaying all user deposits, admin investment history page displaying expired plans with creation date, expiration date, participant count, and total deposit amount, user-initiated investment plan deletion with automatic fund transfer to main deposit wallet (for plans with no active investments), internal wallet swap functionality allowing users to transfer funds from ROI and bonus wallets to main deposit wallet, announcements page accessible to both users and admins with admin CRUD operations and live updates, duplicate deposit prevention logic ensuring single transaction recording on multiple clicks, comprehensive code refactoring and rewrite for complete web application stack (front-end, back-end, and server-side code) to eliminate runtime, authorization, and connection errors while strictly preserving all existing functionality, data structures, and user-facing features, unified content management system (CMS) for Blog and Events sections with full CRUD operations, rich text formatting, media management, draft/publish workflow, and automatic front-end synchronization, TypeScript type safety improvements with automated any type replacement script, optimized Vite build configuration with manual code chunking for vendor bundles, production monitoring setup with Vercel Analytics, Speed Insights, and Supabase logging with critical issue alerting, Progressive Web App (PWA) support for better mobile performance and offline access, comprehensive test suite using Vitest and React Testing Library for core business logic and components, GitHub Actions CI/CD pipeline for automated testing, linting, and deployment to Vercel and Supabase, advanced SEO optimizations including dynamic social meta tags, structured data (Schema.org), and automated sitemap generation, automated performance budgets in CI/CD pipeline to prevent bundle size regressions, and end-to-end (E2E) testing for critical user journeys using Playwright or Cypress.
 
 ---
 
@@ -161,6 +161,14 @@ All existing business rules remain unchanged, with following additions:
   - Test results reported in pull requests
   - Flaky tests must be fixed or removed
 
+#### 4.5.5 E2E Test Requirements
+
+  - Critical user journeys must have E2E tests
+  - Tests must cover complete workflows from start to finish
+  - Tests must run in real browser environment
+  - Tests must validate UI state and backend data consistency
+  - E2E tests run on staging environment before production deployment
+
 ### 4.6 CI/CD Pipeline Rules
 
 #### 4.6.1 Automated Testing Stage
@@ -184,19 +192,64 @@ All existing business rules remain unchanged, with following additions:
   - Build artifacts uploaded for deployment
   - Build failures trigger immediate notifications
 
-#### 4.6.4 Deployment Stage
+#### 4.6.4 Performance Budget Enforcement
+
+  - Bundle size limits enforced in CI pipeline
+  - Build fails if any chunk exceeds configured size limit
+  - Performance budget violations reported in pull requests
+  - Historical bundle size trends tracked and visualized
+
+#### 4.6.5 Deployment Stage
 
   - Automatic deployment to Vercel on main branch merge
   - Supabase migrations applied automatically
   - Environment variables validated before deployment
   - Deployment status reported in pull requests
 
-#### 4.6.5 Post-Deployment Stage
+#### 4.6.6 Post-Deployment Stage
 
   - Smoke tests run against deployed application
   - Performance metrics collected and analyzed
   - Deployment notifications sent to team
   - Rollback triggered if smoke tests fail
+
+### 4.7 SEO Optimization Rules
+
+#### 4.7.1 Dynamic Social Meta Tags
+
+  - Open Graph meta tags generated for all pages
+  - Twitter Card meta tags generated for all pages
+  - Meta tags include dynamic content (title, description, image)
+  - Social preview images generated automatically
+  - Meta tags updated when page content changes
+
+#### 4.7.2 Structured Data (Schema.org)
+
+  - Organization schema added to homepage
+  - WebSite schema with search action added
+  - Article schema added to blog posts
+  - Event schema added to events pages
+  - Product schema added to investment plans
+  - BreadcrumbList schema added to all pages
+  - FAQ schema added to FAQ section
+
+#### 4.7.3 Automated Sitemap Generation
+
+  - XML sitemap generated automatically on build
+  - Sitemap includes all public pages
+  - Sitemap updated when content changes
+  - Sitemap submitted to search engines automatically
+  - Sitemap includes priority and change frequency
+  - Separate sitemaps for different content types (pages, blog, events)
+
+#### 4.7.4 SEO Best Practices
+
+  - Canonical URLs defined for all pages
+  - Meta robots tags configured appropriately
+  - Alt text required for all images
+  - Semantic HTML structure enforced
+  - Page load speed optimized for SEO
+  - Mobile-friendly design validated
 
 ---
 
@@ -565,16 +618,103 @@ export default defineConfig({
 });
 ```
 
-### 5.9 GitHub Actions CI/CD Pipeline
+### 5.9 End-to-End Testing Implementation
 
-#### 5.9.1 Pipeline Workflow Structure
+#### 5.9.1 Playwright Setup
+
+  - Install Playwright and related dependencies
+  - Configure playwright.config.ts with test settings
+  - Set up test browsers (Chromium, Firefox, WebKit)
+  - Configure base URL and test timeout
+  - Set up test fixtures and page objects
+
+#### 5.9.2 Critical User Journey Tests
+
+  - User registration and email verification flow
+  - User login with 2FA authentication
+  - Investment plan selection and deposit process
+  - Withdrawal request submission and approval
+  - Referral link generation and tracking
+  - KYC document upload and verification
+  - ROI distribution and wallet balance updates
+
+#### 5.9.3 Test Structure and Organization
+
+  - E2E tests located in e2e directory
+  - Use page object pattern for reusable components
+  - Group related tests in describe blocks
+  - Use beforeEach for common setup
+  - Use afterEach for cleanup
+
+#### 5.9.4 Test Execution Strategy
+
+  - Run E2E tests on staging environment
+  - Execute tests in parallel for faster feedback
+  - Run critical path tests on every deployment
+  - Run full test suite nightly
+  - Generate HTML test reports
+
+#### 5.9.5 Example Test Configuration
+
+```typescript
+import { defineConfig, devices } from '@playwright/test';
+
+export default defineConfig({
+  testDir: './e2e',
+  fullyParallel: true,
+  forbidOnly: !!process.env.CI,
+  retries: process.env.CI ? 2 : 0,
+  workers: process.env.CI ? 1 : undefined,
+  reporter: 'html',
+  use: {
+    baseURL: 'https://staging.goldxusdt.com',
+    trace: 'on-first-retry',
+    screenshot: 'only-on-failure'
+  },
+  projects: [
+    {
+      name: 'chromium',
+      use: { ...devices['Desktop Chrome'] }
+    },
+    {
+      name: 'firefox',
+      use: { ...devices['Desktop Firefox'] }
+    },
+    {
+      name: 'webkit',
+      use: { ...devices['Desktop Safari'] }
+    }
+  ]
+});
+```
+
+#### 5.9.6 Example E2E Test
+
+```typescript
+import { test, expect } from '@playwright/test';
+
+test.describe('User Registration Flow', () => {
+  test('should complete registration with email verification', async ({ page }) => {
+    await page.goto('/register');
+    await page.fill('[name=\"email\"]', 'test@example.com');
+    await page.fill('[name=\"password\"]', 'SecurePass123!');
+    await page.fill('[name=\"confirmPassword\"]', 'SecurePass123!');
+    await page.click('button[type=\"submit\"]');
+    await expect(page.locator('text=Verification email sent')).toBeVisible();
+  });
+});
+```
+
+### 5.10 GitHub Actions CI/CD Pipeline
+
+#### 5.10.1 Pipeline Workflow Structure
 
   - Workflow triggered on push to main branch and pull requests
   - Multiple jobs run in parallel: test, lint, build
   - Deployment job runs only on main branch after all checks pass
   - Workflow uses GitHub Actions cache for dependencies
 
-#### 5.9.2 Test Job Configuration
+#### 5.10.2 Test Job Configuration
 
   - Checkout code from repository
   - Set up Node.js environment
@@ -584,7 +724,7 @@ export default defineConfig({
   - Upload coverage reports to Codecov
   - Fail job if coverage below threshold
 
-#### 5.9.3 Lint Job Configuration
+#### 5.10.3 Lint Job Configuration
 
   - Checkout code from repository
   - Set up Node.js environment
@@ -594,7 +734,7 @@ export default defineConfig({
   - Run TypeScript compiler check
   - Fail job if any linting errors found
 
-#### 5.9.4 Build Job Configuration
+#### 5.10.4 Build Job Configuration
 
   - Checkout code from repository
   - Set up Node.js environment
@@ -602,10 +742,23 @@ export default defineConfig({
   - Run production build
   - Analyze bundle size
   - Compare bundle size to baseline
+  - Enforce performance budgets
   - Upload build artifacts
   - Fail job if build errors or bundle size exceeds limit
 
-#### 5.9.5 Deployment Job Configuration
+#### 5.10.5 E2E Test Job Configuration
+
+  - Run only on main branch commits
+  - Checkout code from repository
+  - Set up Node.js environment
+  - Install dependencies with npm ci
+  - Install Playwright browsers
+  - Deploy to staging environment
+  - Run E2E tests against staging
+  - Upload test results and screenshots
+  - Fail job if any E2E tests fail
+
+#### 5.10.6 Deployment Job Configuration
 
   - Run only on main branch after all checks pass
   - Checkout code from repository
@@ -617,7 +770,16 @@ export default defineConfig({
   - Send deployment notification to team
   - Rollback if smoke tests fail
 
-#### 5.9.6 Environment Variables Configuration
+#### 5.10.7 Performance Budget Configuration
+
+  - Define bundle size limits in configuration file
+  - Main bundle: 250KB gzipped
+  - Vendor bundles: 200KB gzipped each
+  - Total bundle size: 800KB gzipped
+  - Fail build if any limit exceeded
+  - Generate detailed size report
+
+#### 5.10.8 Environment Variables Configuration
 
   - Store secrets in GitHub repository secrets
   - Configure Vercel deployment token
@@ -625,7 +787,7 @@ export default defineConfig({
   - Configure environment-specific variables
   - Validate all required variables before deployment
 
-#### 5.9.7 Example Workflow Configuration
+#### 5.10.9 Example Workflow Configuration
 
 ```yaml
 name: CI/CD Pipeline
@@ -672,13 +834,33 @@ jobs:
           cache: 'npm'
       - run: npm ci
       - run: npm run build
+      - run: npm run analyze-bundle
       - uses: actions/upload-artifact@v3
         with:
           name: build
           path: dist
 
-  deploy:
+  e2e:
     needs: [test, lint, build]
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+      - run: npm ci
+      - run: npx playwright install --with-deps
+      - run: npm run test:e2e
+      - uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: playwright-report
+          path: playwright-report/
+
+  deploy:
+    needs: [test, lint, build, e2e]
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
     steps:
@@ -694,17 +876,270 @@ jobs:
           SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
 ```
 
-### 5.10 Code Audit Report Generation
+### 5.11 SEO Implementation
 
-#### 5.10.1 Audit Summary Report
+#### 5.11.1 Dynamic Social Meta Tags
+
+  - Install next-seo or react-helmet-async for meta tag management
+  - Create reusable SEO component for consistent meta tags
+  - Generate Open Graph meta tags for all pages
+  - Generate Twitter Card meta tags for all pages
+  - Include dynamic content in meta tags (title, description, image)
+  - Generate social preview images using og-image service
+
+#### 5.11.2 Open Graph Meta Tags Structure
+
+```typescript
+const ogTags = {
+  'og:title': pageTitle,
+  'og:description': pageDescription,
+  'og:image': socialImageUrl,
+  'og:url': canonicalUrl,
+  'og:type': 'website',
+  'og:site_name': 'Gold X Usdt'
+};
+```
+
+#### 5.11.3 Twitter Card Meta Tags Structure
+
+```typescript
+const twitterTags = {
+  'twitter:card': 'summary_large_image',
+  'twitter:title': pageTitle,
+  'twitter:description': pageDescription,
+  'twitter:image': socialImageUrl
+};
+```
+
+#### 5.11.4 Structured Data Implementation
+
+  - Install schema-dts for TypeScript type safety
+  - Create JSON-LD structured data for each page type
+  - Inject structured data into page head
+  - Validate structured data with Google Rich Results Test
+
+#### 5.11.5 Organization Schema
+
+```typescript
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Gold X Usdt',
+  url: 'https://goldxusdt.com',
+  logo: 'https://goldxusdt.com/logo.png',
+  sameAs: [
+    'https://facebook.com/goldxusdt',
+    'https://twitter.com/goldxusdt'
+  ]
+};
+```
+
+#### 5.11.6 WebSite Schema with Search Action
+
+```typescript
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Gold X Usdt',
+  url: 'https://goldxusdt.com',
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: 'https://goldxusdt.com/search?q={search_term_string}',
+    'query-input': 'required name=search_term_string'
+  }
+};
+```
+
+#### 5.11.7 Article Schema for Blog Posts
+
+```typescript
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: articleTitle,
+  description: articleDescription,
+  image: articleImage,
+  datePublished: publishDate,
+  dateModified: modifiedDate,
+  author: {
+    '@type': 'Person',
+    name: authorName
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Gold X Usdt',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://goldxusdt.com/logo.png'
+    }
+  }
+};
+```
+
+#### 5.11.8 Event Schema for Events Pages
+
+```typescript
+const eventSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Event',
+  name: eventName,
+  description: eventDescription,
+  startDate: eventStartDate,
+  endDate: eventEndDate,
+  location: {
+    '@type': 'VirtualLocation',
+    url: eventUrl
+  },
+  organizer: {
+    '@type': 'Organization',
+    name: 'Gold X Usdt',
+    url: 'https://goldxusdt.com'
+  }
+};
+```
+
+#### 5.11.9 Product Schema for Investment Plans
+
+```typescript
+const productSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: planName,
+  description: planDescription,
+  offers: {
+    '@type': 'Offer',
+    price: minimumInvestment,
+    priceCurrency: 'USDT',
+    availability: 'https://schema.org/InStock'
+  }
+};
+```
+
+#### 5.11.10 BreadcrumbList Schema
+
+```typescript
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: 'https://goldxusdt.com'
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: currentPageName,
+      item: currentPageUrl
+    }
+  ]
+};
+```
+
+#### 5.11.11 FAQ Schema
+
+```typescript
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqItems.map(item => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.answer
+    }
+  }))
+};
+```
+
+#### 5.11.12 Automated Sitemap Generation
+
+  - Install sitemap package for Node.js
+  - Create sitemap generation script
+  - Generate XML sitemap during build process
+  - Include all public pages with priority and change frequency
+  - Create separate sitemaps for different content types
+  - Generate sitemap index file
+  - Submit sitemap to Google Search Console and Bing Webmaster Tools
+
+#### 5.11.13 Sitemap Generation Script
+
+```typescript
+import { SitemapStream, streamToPromise } from 'sitemap';
+import { createWriteStream } from 'fs';
+
+const generateSitemap = async () => {
+  const sitemap = new SitemapStream({ hostname: 'https://goldxusdt.com' });
+  const writeStream = createWriteStream('./public/sitemap.xml');
+  
+  sitemap.pipe(writeStream);
+  
+  // Add static pages
+  sitemap.write({ url: '/', changefreq: 'daily', priority: 1.0 });
+  sitemap.write({ url: '/about', changefreq: 'monthly', priority: 0.8 });
+  sitemap.write({ url: '/contact', changefreq: 'monthly', priority: 0.8 });
+  
+  // Add dynamic pages (blog posts, events, investment plans)
+  const blogPosts = await fetchBlogPosts();
+  blogPosts.forEach(post => {
+    sitemap.write({
+      url: `/blog/${post.slug}`,
+      changefreq: 'weekly',
+      priority: 0.7,
+      lastmod: post.updatedAt
+    });
+  });
+  
+  sitemap.end();
+  await streamToPromise(sitemap);
+};
+```
+
+#### 5.11.14 Sitemap Index Structure
+
+```xml
+<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+<sitemapindex xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">
+  <sitemap>
+    <loc>https://goldxusdt.com/sitemap-pages.xml</loc>
+    <lastmod>2026-05-04</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://goldxusdt.com/sitemap-blog.xml</loc>
+    <lastmod>2026-05-04</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://goldxusdt.com/sitemap-events.xml</loc>
+    <lastmod>2026-05-04</lastmod>
+  </sitemap>
+</sitemapindex>
+```
+
+#### 5.11.15 Robots.txt Configuration
+
+```
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+
+Sitemap: https://goldxusdt.com/sitemap.xml
+```
+
+### 5.12 Code Audit Report Generation
+
+#### 5.12.1 Audit Summary Report
 
   - Generate comprehensive audit summary after all improvements
-  - Include sections: TypeScript type safety, build optimization, monitoring setup, PWA implementation, test coverage, CI/CD pipeline
+  - Include sections: TypeScript type safety, build optimization, monitoring setup, PWA implementation, test coverage, CI/CD pipeline, SEO optimization
   - List all resolved issues with before/after comparison
-  - Provide metrics: any type count reduction, bundle size reduction, test coverage percentage, deployment success rate
+  - Provide metrics: any type count reduction, bundle size reduction, test coverage percentage, deployment success rate, SEO score improvements
   - Include recommendations for future improvements
 
-#### 5.10.2 Build Analysis Report
+#### 5.12.2 Build Analysis Report
 
   - Analyze production build output
   - List all generated chunks with sizes
@@ -713,7 +1148,7 @@ jobs:
   - Highlight any chunks exceeding size limits
   - Provide optimization recommendations
 
-#### 5.10.3 Deployment Audit Report
+#### 5.12.3 Deployment Audit Report
 
   - Verify all deployment configurations
   - Check environment variables
@@ -722,21 +1157,22 @@ jobs:
   - Test deployed application endpoints
   - Generate deployment health report
 
-#### 5.10.4 Deployment Checklist
+#### 5.12.4 Deployment Checklist
 
-  - Pre-deployment checks: tests passing, linting passing, build successful, environment variables configured
+  - Pre-deployment checks: tests passing, linting passing, build successful, environment variables configured, performance budgets met
   - Deployment steps: deploy to Vercel, apply Supabase migrations, verify deployment
-  - Post-deployment checks: smoke tests passing, monitoring active, alerts configured
+  - Post-deployment checks: smoke tests passing, E2E tests passing, monitoring active, alerts configured, SEO validation
   - Rollback procedure: revert deployment, restore database, notify team
 
-#### 5.10.5 Comprehensive Checklist
+#### 5.12.5 Comprehensive Checklist
 
   - TypeScript type safety: all any types replaced, error handling uses unknown, type guards implemented
-  - Build optimization: vendor chunks configured, bundle sizes within limits, code splitting enabled
+  - Build optimization: vendor chunks configured, bundle sizes within limits, code splitting enabled, performance budgets enforced
   - Monitoring: Vercel Analytics active, Speed Insights configured, Supabase logging enabled, alerts configured
   - PWA: service worker registered, manifest configured, offline functionality working, install prompt implemented
-  - Testing: unit tests written, component tests written, integration tests written, coverage above 80%
+  - Testing: unit tests written, component tests written, integration tests written, E2E tests written, coverage above 80%
   - CI/CD: GitHub Actions workflow configured, all jobs passing, deployment automated, rollback procedure tested
+  - SEO: dynamic meta tags implemented, structured data added, sitemap generated, robots.txt configured
   - Documentation: audit reports generated, deployment checklist completed, all issues resolved
 
 ---
@@ -777,6 +1213,16 @@ All existing exception and boundary cases remain unchanged, with following addit
 | GitHub Actions workflow exceeds time limit | Workflow cancelled, notification sent, optimization required |
 | Dependency installation fails during CI | Build fails, dependency conflict identified, resolution required |
 | Environment variables missing during deployment | Deployment fails with clear error message, missing variables listed |
+| Performance budget exceeded during build | Build fails, bundle size report generated, optimization required before deployment |
+| E2E test fails on staging environment | Deployment blocked, test failure details provided, developer must fix before production deployment |
+| Playwright browser installation fails | CI job fails, error logged, manual intervention required |
+| E2E test times out | Test marked as failed, screenshot captured, retry attempted |
+| Sitemap generation fails during build | Build continues, warning logged, manual sitemap generation required |
+| Structured data validation fails | Warning logged, invalid schema identified, correction required |
+| Social meta tag image generation fails | Default image used, error logged, manual image creation required |
+| Search engine crawler blocked by robots.txt | Crawler respects robots.txt, pages not indexed, configuration review required |
+| Open Graph meta tags missing required fields | Default values used, warning logged, meta tags updated |
+| Schema.org structured data contains errors | Google Rich Results Test shows errors, structured data corrected, revalidation required |
 
 ---
 
@@ -842,14 +1288,55 @@ All existing acceptance criteria remain unchanged, with following additions:
   - Test job runs unit and integration tests with coverage
   - Lint job runs ESLint, Prettier, and TypeScript checks
   - Build job creates production build and analyzes bundle size
+  - Build job enforces performance budgets and fails if exceeded
+  - E2E test job runs Playwright tests on staging environment
   - Deployment job deploys to Vercel and applies Supabase migrations
   - All jobs run in parallel for faster feedback
   - Workflow uses caching for faster dependency installation
   - Deployment only occurs on main branch after all checks pass
   - Smoke tests run against deployed application
-  - Rollback triggered if smoke tests fail
+  - E2E tests pass on staging before production deployment
+  - Rollback triggered if smoke tests or E2E tests fail
   - Deployment notifications sent to team
   - Environment variables validated before deployment
+  - Performance budgets configured in CI pipeline
+  - Bundle size limits enforced: main bundle 250KB, vendor bundles 200KB each, total 800KB
+  - Build fails if any bundle exceeds size limit
+  - Bundle size comparison report generated on every build
+  - Playwright installed and configured correctly
+  - E2E tests written for all critical user journeys
+  - E2E tests cover registration, login, investment, withdrawal, referral, and KYC flows
+  - E2E tests run on Chromium, Firefox, and WebKit browsers
+  - E2E test results uploaded as artifacts
+  - Screenshots captured on test failures
+  - HTML test report generated after E2E test run
+  - Dynamic social meta tags implemented on all pages
+  - Open Graph meta tags include title, description, image, and URL
+  - Twitter Card meta tags configured correctly
+  - Social preview images generated automatically
+  - Meta tags update when page content changes
+  - Structured data implemented for all page types
+  - Organization schema added to homepage
+  - WebSite schema with search action added
+  - Article schema added to blog posts
+  - Event schema added to events pages
+  - Product schema added to investment plans
+  - BreadcrumbList schema added to all pages
+  - FAQ schema added to FAQ section
+  - All structured data validates with Google Rich Results Test
+  - XML sitemap generated automatically during build
+  - Sitemap includes all public pages with priority and change frequency
+  - Separate sitemaps created for pages, blog, and events
+  - Sitemap index file generated
+  - Sitemap submitted to Google Search Console and Bing Webmaster Tools
+  - Robots.txt configured correctly
+  - Canonical URLs defined for all pages
+  - Meta robots tags configured appropriately
+  - Alt text provided for all images
+  - Semantic HTML structure enforced
+  - Page load speed optimized for SEO
+  - Mobile-friendly design validated
+  - Lighthouse SEO audit score above 90
   - Audit Summary report generated with all resolved issues
   - Build Analysis report shows all chunks within size limits
   - Deployment Audit Report confirms successful deployment
@@ -888,7 +1375,6 @@ All existing out of scope items remain unchanged, with following additions:
   - Native app wrapper for iOS and Android
   - Advanced caching strategies with custom cache invalidation
   - Service worker update notifications and forced updates
-  - E2E testing with Playwright or Cypress
   - Visual regression testing
   - Performance testing and load testing
   - Mutation testing for test suite quality
@@ -902,3 +1388,10 @@ All existing out of scope items remain unchanged, with following additions:
   - Container orchestration with Kubernetes
   - Advanced monitoring with distributed tracing
   - Chaos engineering and resilience testing
+  - Advanced SEO features (hreflang tags for multi-language, AMP pages, rich snippets beyond basic schema)
+  - Automated SEO auditing and recommendations
+  - Integration with Google Analytics 4 and Google Tag Manager
+  - Advanced performance budgeting with custom metrics
+  - Automated accessibility testing in CI/CD pipeline
+  - Cross-browser E2E testing on real devices (BrowserStack, Sauce Labs)
+  - Visual E2E testing with Percy or similar tools
