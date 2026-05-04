@@ -45,17 +45,13 @@ Vercel should auto-detect these settings, but verify:
 3. Configure environment variables
 4. Click "Deploy"
 
-#### Option B: Via CLI
-```bash
-# Install Vercel CLI
-npm i -g vercel
-
-# Login
-vercel login
-
-# Deploy to production
-vercel --prod
-```
+#### Option C: Via CI/CD Pipeline (Recommended)
+1. Push your code to the `main` or `master` branch.
+2. The GitHub Actions workflow (`.github/workflows/ci-cd.yml`) will automatically:
+   - Run linting and type checks
+   - Run Vitest unit tests
+   - Build the application
+   - Deploy to Vercel (if configured with secrets)
 
 ### 5. Post-Deployment
 
