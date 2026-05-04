@@ -108,9 +108,9 @@ export default function AdminTelegramConfigPage() {
       } else {
         toast.error(`Failed to set webhook: ${data?.description || 'Unknown error'}`);
       }
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Webhook error:', error);
-      toast.error(error.message || 'Failed to set webhook');
+      toast.error((error as any).message || 'Failed to set webhook');
     } finally {
       setTesting(false);
     }
@@ -132,8 +132,8 @@ export default function AdminTelegramConfigPage() {
 
       toast.success('Test alert sent successfully! Check your Telegram.');
       loadData();
-    } catch (error: any) {
-      toast.error(error.message || 'Failed to send test alert');
+    } catch (error: unknown) {
+      toast.error((error as any).message || 'Failed to send test alert');
     } finally {
       setTesting(false);
     }
@@ -313,7 +313,7 @@ export default function AdminTelegramConfigPage() {
                       <div className="col-span-2">
                         <span className="text-red-500">Last Error: </span>
                         <span className="font-mono">{format(new Date(webhookInfo.last_error_date * 1000), 'yyyy-MM-dd HH:mm:ss')}</span>
-                        <p className="text-red-400 mt-1">{webhookInfo.last_error_message}</p>
+                        <p className="text-red-400 mt-1">{webhookInfo.last_error.message}</p>
                       </div>
                     )}
                   </div>

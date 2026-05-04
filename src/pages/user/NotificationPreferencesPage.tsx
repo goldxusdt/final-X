@@ -78,9 +78,9 @@ export default function NotificationPreferencesPage() {
         setUserCategories(allCatNames);
         toast.success('Successfully subscribed to push notifications!');
       }
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Subscription error:', error);
-      toast.error(error.message || 'Failed to update subscription');
+      toast.error((error as any).message || 'Failed to update subscription');
     } finally {
       setActionLoading(false);
     }

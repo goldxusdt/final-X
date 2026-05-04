@@ -342,9 +342,9 @@ export default function AdminUsersPage() {
       setCreateDialogOpen(false);
       setNewUser({ email: '', password: '', full_name: '', role: 'user' });
       loadUsers();
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Creation failed:', error);
-      toast.error(error.message || 'Failed to create user');
+      toast.error((error as any).message || 'Failed to create user');
     }
   };
 

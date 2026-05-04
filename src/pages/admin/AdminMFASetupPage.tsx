@@ -25,9 +25,9 @@ export default function AdminMFASetupPage() {
       const { data, error } = await invokeEdgeFunction('mfa-setup');
       if (error) throw error;
       setSetupData(data);
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Failed to fetch MFA setup data:', error);
-      toast.error(error.message || 'Failed to initialize MFA setup');
+      toast.error((error as any).message || 'Failed to initialize MFA setup');
     } finally {
       setLoading(false);
     }
@@ -68,8 +68,8 @@ export default function AdminMFASetupPage() {
       if (!data.backup_codes) {
         navigate('/admin');
       }
-    } catch (error: any) {
-      toast.error(error.message || 'Verification failed');
+    } catch (error: unknown) {
+      toast.error((error as any).message || 'Verification failed');
     } finally {
       setLoading(false);
     }

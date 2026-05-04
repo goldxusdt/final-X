@@ -136,9 +136,9 @@ export default function AdminAnnouncementEditor() {
       }));
       setUploadProgress(100);
       toast.success(`${files.length} image(s) uploaded successfully`);
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Upload error:', error);
-      toast.error('Failed to upload image: ' + error.message);
+      toast.error('Failed to upload image: ' + (error as any).message);
     } finally {
       setUploading(false);
       setUploadProgress(0);
@@ -177,9 +177,9 @@ export default function AdminAnnouncementEditor() {
         toast.success('Announcement published successfully');
       }
       navigate('/admin/announcements');
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error saving announcement:', error);
-      toast.error(error.message || 'Failed to save announcement');
+      toast.error((error as any).message || 'Failed to save announcement');
     } finally {
       setLoading(false);
     }

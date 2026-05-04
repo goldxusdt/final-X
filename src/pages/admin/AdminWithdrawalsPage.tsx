@@ -100,9 +100,9 @@ export default function AdminWithdrawalsPage() {
       if (error) throw error;
       toast.success(`Withdrawal ${approved ? 'approved' : 'rejected'} successfully`);
       loadWithdrawals();
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Failed to process withdrawal:', error);
-      toast.error(error.message || 'Failed to process withdrawal');
+      toast.error((error as any).message || 'Failed to process withdrawal');
     }
   };
 

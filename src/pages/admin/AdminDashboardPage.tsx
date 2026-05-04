@@ -177,9 +177,9 @@ export default function AdminDashboardPage() {
 
       // Reload data
       loadData();
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Failed to process refund:', error);
-      toast.error(error.message || 'Failed to process refund');
+      toast.error((error as any).message || 'Failed to process refund');
     } finally {
       setProcessingRefundId(null);
     }

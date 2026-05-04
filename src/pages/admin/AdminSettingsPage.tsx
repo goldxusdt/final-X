@@ -453,8 +453,8 @@ export default function AdminSettingsPage() {
                         const result = await bulkSyncReferralTargets();
                         toast.dismiss(loadingToast);
                         toast.success(`Successfully synced targets to ${result.updated_count} users!`);
-                      } catch (err: any) {
-                        toast.error(err.message || "Sync failed");
+                      } catch (err: unknown) {
+                        toast.error((err as any).message || "Sync failed");
                       }
                     }
                   }}

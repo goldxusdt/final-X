@@ -186,9 +186,9 @@ export default function AdminCouponsPage() {
       
       // Export to CSV immediately
       exportToCSV(newCoupons.map(c => ({ Code: c.code, Type: c.discount_type, Value: c.discount_value })), 'generated_coupons');
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Bulk generation failed:', error);
-      toast.error(error.message || 'Bulk generation failed');
+      toast.error((error as any).message || 'Bulk generation failed');
     } finally {
       setGenerating(false);
     }
@@ -274,9 +274,9 @@ export default function AdminCouponsPage() {
         single_use_per_user: true,
       });
       loadCoupons();
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Failed to create coupon:', error);
-      toast.error(error.message || 'Failed to create coupon');
+      toast.error((error as any).message || 'Failed to create coupon');
     }
   };
 
@@ -361,7 +361,7 @@ export default function AdminCouponsPage() {
       if (error) throw error;
       toast.success('Eligible used coupons bulk deleted');
       loadCoupons();
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Bulk delete failed:', error);
       toast.error('Bulk delete failed');
     } finally {

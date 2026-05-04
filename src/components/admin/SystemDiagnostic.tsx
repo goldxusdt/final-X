@@ -48,8 +48,8 @@ export function SystemDiagnostic() {
       const { error } = await supabase.from('platform_settings' as any).select('count', { count: 'exact', head: true } as any);
       if (error) throw error;
       updateResult('Database Connection', 'healthy', Date.now() - dbStart);
-    } catch (e: any) {
-      updateResult('Database Connection', 'error', undefined, e.message);
+    } catch (e: unknown) {
+      updateResult('Database Connection', 'error', undefined, (e as any).message);
     }
 
     // 2. Auth Service
@@ -57,8 +57,8 @@ export function SystemDiagnostic() {
       const { data: { session }, error } = await supabase.auth.getSession();
       if (error) throw error;
       updateResult('Auth Service', 'healthy', undefined, session ? 'Authenticated' : 'Public Access OK');
-    } catch (e: any) {
-      updateResult('Auth Service', 'error', undefined, e.message);
+    } catch (e: unknown) {
+      updateResult('Auth Service', 'error', undefined, (e as any).message);
     }
 
     // 3. Realtime WebSocket
@@ -81,23 +81,23 @@ export function SystemDiagnostic() {
             : r
         ));
       }, 5000);
-    } catch (e: any) {
-      updateResult('Realtime WebSocket', 'error', undefined, e.message);
+    } catch (e: unknown) {
+      updateResult('Realtime WebSocket', 'error', undefined, (e as any).message);
     }
 
     // 4. Edge Functions
     try {
       const { error } = await supabase.functions.invoke('hello-world');
       // If hello-world doesn't exist, it might return 404, but we just check if service responds
-      if (error && error.message.includes('not found')) {
+      if (error && (error as any).message.includes('not found')) {
         updateResult('Edge Functions', 'warning', undefined, 'Function service active, hello-world not found');
       } else if (error) {
         throw error;
       } else {
         updateResult('Edge Functions', 'healthy');
       }
-    } catch (e: any) {
-      updateResult('Edge Functions', 'error', undefined, e.message);
+    } catch (e: unknown) {
+      updateResult('Edge Functions', 'error', undefined, (e as any).message);
     }
 
     // 5. Storage Buckets
@@ -106,8 +106,8 @@ export function SystemDiagnostic() {
       if (error) throw error;
       const announcementsExists = (data || []).find(b => b.name === 'announcements');
       updateResult('Storage Buckets', announcementsExists ? 'healthy' : 'warning', undefined, announcementsExists ? 'All buckets available' : 'announcements bucket missing');
-    } catch (e: any) {
-      updateResult('Storage Buckets', 'error', undefined, e.message);
+    } catch (e: unknown) {
+      updateResult('Storage Buckets', 'error', undefined, (e as any).message);
     }
 
     setLastCheck(new Date());

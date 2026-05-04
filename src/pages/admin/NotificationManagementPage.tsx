@@ -159,9 +159,9 @@ export default function NotificationManagementPage() {
         category_id: ''
       });
       loadData();
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Send error:', error);
-      toast.error(error.message || 'Failed to send notification');
+      toast.error((error as any).message || 'Failed to send notification');
     } finally {
       setSending(false);
     }
@@ -182,7 +182,7 @@ export default function NotificationManagementPage() {
 
       toast.success('Notification recalled successfully');
       loadData();
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Recall error:', error);
       toast.error('Failed to recall notification');
     }
@@ -282,9 +282,9 @@ export default function NotificationManagementPage() {
         });
         setIsDialogOpen(false);
       }
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Create template error:', error);
-      toast.error(error.message || 'Failed to create template');
+      toast.error((error as any).message || 'Failed to create template');
     } finally {
       setCreatingTemplate(false);
     }
@@ -303,7 +303,7 @@ export default function NotificationManagementPage() {
 
       setTemplates(templates.filter(t => t.id !== id));
       toast.success('Template deleted');
-    } catch (error: any) {
+    } catch (error: unknown) {
       toast.error('Failed to delete template');
     }
   };
@@ -321,7 +321,7 @@ export default function NotificationManagementPage() {
 
       setHistory(history.filter(h => h.id !== id));
       toast.success('Record deleted');
-    } catch (error: any) {
+    } catch (error: unknown) {
       toast.error('Failed to delete record');
     }
   };
@@ -365,9 +365,9 @@ export default function NotificationManagementPage() {
         setNewCategory({ name: '', description: '', color: '#BF953F' });
         setIsCategoryDialogOpen(false);
       }
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Create category error:', error);
-      toast.error(error.message || 'Failed to create category');
+      toast.error((error as any).message || 'Failed to create category');
     } finally {
       setCreatingCategory(false);
     }
@@ -391,7 +391,7 @@ export default function NotificationManagementPage() {
       toast.success('Category updated successfully');
       setCategories(categories.map(c => c.id === editingCategory.id ? editingCategory : c));
       setEditingCategory(null);
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Update category error:', error);
       toast.error('Failed to update category');
     }
@@ -423,7 +423,7 @@ export default function NotificationManagementPage() {
 
       setCategories(categories.filter(c => c.id !== id));
       toast.success('Category deleted');
-    } catch (error: any) {
+    } catch (error: unknown) {
       toast.error('Failed to delete category');
     }
   };

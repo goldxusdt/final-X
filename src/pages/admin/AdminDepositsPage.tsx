@@ -96,9 +96,9 @@ export default function AdminDepositsPage() {
       
       toast.success('Deposit approved successfully');
       loadDeposits();
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Failed to approve deposit:', error);
-      toast.error(error?.message || 'Failed to approve deposit');
+      toast.error((error as any)?.message || 'Failed to approve deposit');
     } finally {
       setVerifying(null);
     }
@@ -140,7 +140,7 @@ export default function AdminDepositsPage() {
       });
 
       if (error) {
-        toast.error(`Verification failed: ${error.message}`);
+        toast.error(`Verification failed: ${(error as any).message}`);
         return;
       }
 

@@ -42,7 +42,7 @@ export function SMTPSettingsManager({ settings, updateSetting }: SMTPSettingsMan
 
       if (error) throw error;
       toast.success('Test email sent successfully! Please check your inbox.');
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Email test failed:', error);
       toast.error('Failed to send test email. Check SMTP settings and console logs.');
     } finally {

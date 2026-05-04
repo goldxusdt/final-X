@@ -118,9 +118,9 @@ export default function AdminSecurityPage() {
       
       setError(null);
       if (isRefresh) toast.success('Security data updated live');
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error('Failed to load security data:', err);
-      setError(err.message || 'Partial failure loading security parameters');
+      setError((err as any).message || 'Partial failure loading security parameters');
       toast.error('Security handshake degraded');
     } finally {
       setLoading(false);

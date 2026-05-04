@@ -161,9 +161,9 @@ export default function SignupPage() {
 
       toast.success(otpData?.message || 'OTP code sent to your email. Please check your inbox.');
       setStep('otp');
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Failed to send OTP:', error);
-      toast.error(error.message || 'Failed to send OTP code');
+      toast.error((error as any).message || 'Failed to send OTP code');
     } finally {
       setLoading(false);
     }
@@ -196,9 +196,9 @@ export default function SignupPage() {
       
       // Navigate to login with state to pre-fill email
       navigate('/login', { state: { email } });
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Failed to verify OTP:', error);
-      toast.error(error.message || 'Verification failed');
+      toast.error((error as any).message || 'Verification failed');
     } finally {
       setLoading(false);
     }
@@ -226,9 +226,9 @@ export default function SignupPage() {
       }
 
       toast.success(data?.message || 'OTP code resent to your email');
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Failed to resend OTP:', error);
-      toast.error(error.message || 'Failed to resend OTP');
+      toast.error((error as any).message || 'Failed to resend OTP');
     } finally {
       setLoading(false);
     }
@@ -239,7 +239,7 @@ export default function SignupPage() {
     try {
       const { error } = await signInWithGoogle();
       if (error) {
-        toast.error(error.message);
+        toast.error((error as any).message);
       }
     } catch (error) {
       toast.error('An unexpected error occurred');

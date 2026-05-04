@@ -264,7 +264,7 @@ export default function AdminUserDetailPage() {
                 });
                 
                 if (error) {
-                  toast.error(`Deletion failed: ${error.message}`);
+                  toast.error(`Deletion failed: ${(error as any).message}`);
                 } else {
                   toast.success('User deleted and sessions terminated');
                   navigate('/admin/users');
@@ -338,7 +338,7 @@ export default function AdminUserDetailPage() {
                           .eq('id', profile.id);
                         
                         if (error) {
-                          toast.error(`Failed to update User Group: ${error.message}`);
+                          toast.error(`Failed to update User Group: ${(error as any).message}`);
                         } else {
                           toast.success('User Group updated');
                           // @ts-ignore
@@ -364,7 +364,7 @@ export default function AdminUserDetailPage() {
                         .eq('id', profile.id);
                       
                       if (error) {
-                        toast.error(`Update failed: ${error.message}`);
+                        toast.error(`Update failed: ${(error as any).message}`);
                       } else {
                         toast.success(`Auto-withdrawal ${checked ? 'enabled' : 'disabled'}`);
                       }
@@ -520,8 +520,8 @@ export default function AdminUserDetailPage() {
 
                   if (error) throw error;
                   toast.success('ROI Settings saved successfully');
-                } catch (error: any) {
-                  toast.error(`Failed to save settings: ${error.message}`);
+                } catch (error: unknown) {
+                  toast.error(`Failed to save settings: ${(error as any).message}`);
                 }
               }}
             >
@@ -636,8 +636,8 @@ export default function AdminUserDetailPage() {
                         toast.success(`Level ${level} ${checked ? 'enabled' : 'disabled'} for user`);
                         const updatedProfile = { ...profile, [field]: checked };
                         setProfile(updatedProfile as any);
-                      } catch (error: any) {
-                        toast.error(`Failed to update level: ${error.message}`);
+                      } catch (error: unknown) {
+                        toast.error(`Failed to update level: ${(error as any).message}`);
                       }
                     }}
                   />

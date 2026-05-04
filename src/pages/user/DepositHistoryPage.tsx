@@ -50,7 +50,7 @@ export default function DepositHistoryPage() {
 
       if (error) throw error;
       setDeposits(data || []);
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error loading deposits:', error);
       toast.error('Failed to load deposit history');
     } finally {

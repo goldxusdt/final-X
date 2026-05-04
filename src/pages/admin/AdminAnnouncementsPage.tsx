@@ -67,9 +67,9 @@ export default function AdminAnnouncementsPage() {
       toast.success('Announcement deleted successfully');
       setDeleteDialogOpen(false);
       loadAnnouncements();
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error deleting announcement:', error);
-      toast.error(error.message || 'Failed to delete announcement');
+      toast.error((error as any).message || 'Failed to delete announcement');
     }
   };
 

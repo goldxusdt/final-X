@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import IntersectObserver from '@/components/common/IntersectObserver';
 import { Toaster } from '@/components/ui/sonner';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import { RouteGuard } from '@/components/common/RouteGuard';
 import './utils/i18n';
 
@@ -75,6 +77,8 @@ function AppContent() {
         {!isAuthPage && !isDashboardPage && <Footer />}
       </div>
       <Toaster />
+      <Analytics />
+      <SpeedInsights />
     </TooltipProvider>
   );
 }

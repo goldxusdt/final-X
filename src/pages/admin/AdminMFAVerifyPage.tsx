@@ -41,8 +41,8 @@ export default function AdminMFAVerifyPage() {
       toast.success('Security verification successful');
       setMfaVerified(true);
       navigate('/admin');
-    } catch (error: any) {
-      toast.error(error.message || 'Invalid security code');
+    } catch (error: unknown) {
+      toast.error((error as any).message || 'Invalid security code');
     } finally {
       setLoading(false);
     }

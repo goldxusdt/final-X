@@ -20,8 +20,8 @@ export function SettingsProvider({ children }: { children: React.ReactNode }) {
   const loadSettings = async () => {
     try {
       const { data } = await supabase.from('settings').select('key, value');
-      const settingsObj: any = {};
-      data?.forEach((s: any) => {
+      const settingsObj: Record<string, string> = {};
+      data?.forEach((s: { key: string; value: string }) => {
         settingsObj[s.key] = s.value;
       });
       setSettings(settingsObj);

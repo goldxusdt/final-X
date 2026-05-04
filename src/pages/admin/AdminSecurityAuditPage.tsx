@@ -47,15 +47,15 @@ export default function AdminSecurityAuditPage() {
           status: error ? 'error' : (data?.success ? 'healthy' : 'degraded'),
           latency: duration,
           lastChecked: new Date().toISOString(),
-          error: error?.message || data?.error
+          error: (error as any)?.message || data?.error
         });
-      } catch (err: any) {
+      } catch (err: unknown) {
         results.push({
           ...fn,
           status: 'error',
           latency: Date.now() - startTime,
           lastChecked: new Date().toISOString(),
-          error: err.message
+          error: (err as any).message
         });
       }
     }

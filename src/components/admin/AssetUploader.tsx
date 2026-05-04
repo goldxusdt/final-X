@@ -58,7 +58,7 @@ export function AssetUploader({
           file_type: file.type,
           file_size: file.size,
           status: 'failure',
-          error_message: error.message
+          error_message: (error as any).message
         }]);
         throw error;
       }
@@ -78,7 +78,7 @@ export function AssetUploader({
 
       onUpload(publicUrl);
       toast.success('Asset uploaded successfully');
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Upload error:', error);
       
       // Attempt to log failure if not already logged
@@ -89,10 +89,10 @@ export function AssetUploader({
         file_type: file.type,
         file_size: file.size,
         status: 'failure',
-        error_message: error.message
+        error_message: (error as any).message
       }]);
 
-      toast.error(`Upload failed: ${error.message}`);
+      toast.error(`Upload failed: ${(error as any).message}`);
     } finally {
       setUploading(false);
     }

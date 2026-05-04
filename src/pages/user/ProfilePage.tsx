@@ -33,7 +33,7 @@ import { supabase } from '@/services/supabase';
 import { exportToCSV } from '@/utils/csv-export';
 import { countries } from '@/utils/countries';
 import { getStatesForCountry } from '@/utils/states';
-import type { Profile } from '@/types';
+import type { Profile, ActivityLog, Transaction } from '@/types';
 import { cn } from '@/utils/utils';
 import { format } from 'date-fns';
 
@@ -46,7 +46,7 @@ export default function ProfilePage() {
   const [documentType, setDocumentType] = useState<string>('');
   const [autoWithdrawal, setAutoWithdrawal] = useState(false);
   const [availableStates, setAvailableStates] = useState<string[]>([]);
-  const [activityLogs, setActivityLogs] = useState<any[]>([]);
+  const [activityLogs, setActivityLogs] = useState<ActivityLog[]>([]);
   const [formData, setFormData] = useState({
     full_name: '',
     phone: '',
@@ -83,8 +83,8 @@ export default function ProfilePage() {
       toast.success('OTP sent to your email');
       setPasswordStep('otp');
       setIsPasswordDialogOpen(true);
-    } catch (error: any) {
-      toast.error(error.message || 'Failed to send OTP');
+    } catch (error: unknown) {
+      toast.error((error as any).message || 'Failed to send OTP');
     } finally {
       setIsPasswordLoading(false);
     }
@@ -101,11 +101,11 @@ export default function ProfilePage() {
           purpose: 'password_change' 
         }
       });
-      if (error || !data?.success) throw new Error(error?.message || 'Invalid OTP');
+      if (error || !data?.success) throw new Error((error as any)?.message || 'Invalid OTP');
       toast.success('OTP verified');
       setPasswordStep('new_password');
-    } catch (error: any) {
-      toast.error(error.message || 'Failed to verify OTP');
+    } catch (error: unknown) {
+      toast.error((error as any).message || 'Failed to verify OTP');
     } finally {
       setIsPasswordLoading(false);
     }
@@ -129,8 +129,8 @@ export default function ProfilePage() {
       setIsPasswordDialogOpen(false);
       setPasswordStep('initial');
       setPasswordForm({ newPassword: '', confirmPassword: '', otp: '' });
-    } catch (error: any) {
-      toast.error(error.message || 'Failed to update password');
+    } catch (error: unknown) {
+      toast.error((error as any).message || 'Failed to update password');
     } finally {
       setIsPasswordLoading(false);
     }
@@ -181,8 +181,8 @@ export default function ProfilePage() {
       ]);
       exportToCSV([
         { category: 'Profile', detail: `Name: ${profile.full_name}, Email: ${profile.email}` },
-        ...(transactions.data || []).map((tx: any) => ({ category: 'Transaction', detail: `${tx.transaction_type}: ${tx.amount} USDT - ${tx.status}` })),
-        ...(referrals.data || []).map((ref: any) => ({ category: 'Referral', detail: `${ref.email} (${ref.username || 'N/A'})` }))
+        ...(transactions.data || []).map((tx: Transaction) => ({ category: 'Transaction', detail: `${tx.transaction_type}: ${tx.amount} USDT - ${tx.status}` })),
+        ...(referrals.data || []).map((ref: Profile) => ({ category: 'Referral', detail: `${ref.email} (${ref.username || 'N/A'})` }))
       ], 'my_data_export');
       toast.success('Your data has been downloaded successfully');
     } catch (error) {
@@ -254,7 +254,7 @@ export default function ProfilePage() {
           file_type: file.type,
           file_size: file.size,
           status: 'failure',
-          error_message: uploadError.message,
+          error_message: (uploadError as any).message,
           metadata: { bucket: 'kyc_documents', filePath }
         }]);
         throw uploadError;
@@ -312,9 +312,9 @@ export default function ProfilePage() {
       if (updateError) throw updateError;
       toast.success('Document uploaded. Status set to pending.');
       loadProfile();
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Upload failed:', error);
-      toast.error(`Upload failed: ${error.message || 'Unknown error'}`);
+      toast.error(`Upload failed: ${(error as any).message || 'Unknown error'}`);
     } finally {
       setUploading(false);
     }

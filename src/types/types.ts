@@ -257,6 +257,7 @@ export interface ActivityLog {
   action: string;
   description: string | null;
   metadata: Record<string, unknown> | null;
+  ip_address?: string | null;
   created_at: string;
 }
 
@@ -351,7 +352,7 @@ export interface UploadLog {
 export interface PushSubscription {
   id: string;
   user_id: string;
-  subscription_json: any;
+  subscription_json: unknown;
   categories: string[];
   created_at: string;
   updated_at: string;

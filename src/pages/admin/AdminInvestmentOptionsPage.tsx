@@ -272,8 +272,8 @@ export default function AdminInvestmentOptionsPage() {
 
       setDialogOpen(false);
       loadOptions();
-    } catch (error: any) {
-      toast.error(error.message || 'Failed to save investment option');
+    } catch (error: unknown) {
+      toast.error((error as any).message || 'Failed to save investment option');
       console.error(error);
     }
   };
@@ -288,8 +288,8 @@ export default function AdminInvestmentOptionsPage() {
       if (error) throw error;
       toast.success(`Plan ${option.is_locked ? 'unlocked' : 'locked'} successfully`);
       loadOptions();
-    } catch (error: any) {
-      toast.error(error.message || 'Failed to toggle lock status');
+    } catch (error: unknown) {
+      toast.error((error as any).message || 'Failed to toggle lock status');
       console.error(error);
     }
   };
@@ -304,8 +304,8 @@ export default function AdminInvestmentOptionsPage() {
       if (error) throw error;
       toast.success(`Plan ${option.is_active ? 'archived' : 'activated'} successfully`);
       loadOptions();
-    } catch (error: any) {
-      toast.error(error.message || 'Failed to update plan active status');
+    } catch (error: unknown) {
+      toast.error((error as any).message || 'Failed to update plan active status');
     }
   };
 
@@ -320,8 +320,8 @@ export default function AdminInvestmentOptionsPage() {
       toast.success('Investment option archived successfully');
       loadOptions();
       setDeleteDialogOpen(false);
-    } catch (error: any) {
-      toast.error(error.message || 'Failed to archive investment option');
+    } catch (error: unknown) {
+      toast.error((error as any).message || 'Failed to archive investment option');
       console.error(error);
     }
   };
@@ -343,8 +343,8 @@ export default function AdminInvestmentOptionsPage() {
       toast.success('Investment plan deleted and all participants refunded');
       loadOptions();
       setDeleteDialogOpen(false);
-    } catch (error: any) {
-      toast.error(error.message || 'Failed to delete investment plan');
+    } catch (error: unknown) {
+      toast.error((error as any).message || 'Failed to delete investment plan');
       console.error(error);
     }
   };

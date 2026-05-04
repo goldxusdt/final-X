@@ -8,7 +8,7 @@ export interface FunctionInvokeOptions {
 
 /**
  * Robust wrapper for invoking Supabase Edge Functions.
- * Automatically parses error context and returns a user-friendly error message.
+ * Automatically parses error context and returns a user-friendly (error as any).message.
  */
 export async function invokeEdgeFunction<T = any>(
   name: string,
@@ -22,7 +22,7 @@ export async function invokeEdgeFunction<T = any>(
     });
 
     if (error) {
-      let errorMsg = error.message;
+      let errorMsg = (error as any).message;
       try {
         if (error.context && typeof error.context.text === 'function') {
           const contextText = await error.context.text();
@@ -39,7 +39,7 @@ export async function invokeEdgeFunction<T = any>(
         console.error(`Error parsing ${name} error context:`, e);
       }
       
-      // If it's the generic Supabase error message, try to make it better
+      // If it's the generic Supabase error.message, try to make it better
       if (errorMsg === 'Edge Function returned a non-2xx status code') {
         errorMsg = `Server error in ${name}. Please try again later.`;
       }
@@ -48,7 +48,7 @@ export async function invokeEdgeFunction<T = any>(
     }
 
     return { data: data as T, error: null };
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error(`Unexpected exception invoking ${name}:`, error);
     return { data: null, error: error as Error };
   }

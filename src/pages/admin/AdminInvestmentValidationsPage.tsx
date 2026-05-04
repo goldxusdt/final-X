@@ -49,8 +49,8 @@ export default function AdminInvestmentValidationsPage() {
 
       toast.success('Investment validated and activated successfully');
       loadValidations();
-    } catch (error: any) {
-      toast.error(error.message || 'Failed to approve validation');
+    } catch (error: unknown) {
+      toast.error((error as any).message || 'Failed to approve validation');
       console.error(error);
     }
   };
@@ -72,8 +72,8 @@ export default function AdminInvestmentValidationsPage() {
 
       toast.success('Validation rejected');
       loadValidations();
-    } catch (error: any) {
-      toast.error(error.message || 'Failed to reject validation');
+    } catch (error: unknown) {
+      toast.error((error as any).message || 'Failed to reject validation');
       console.error(error);
     }
   };

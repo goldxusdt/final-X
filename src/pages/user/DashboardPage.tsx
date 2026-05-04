@@ -102,13 +102,13 @@ export default function DashboardPage() {
     try {
       const { error } = await deleteUserInvestmentSelection(id);
       if (error) {
-        toast.error('Deletion failed: ' + error.message);
+        toast.error('Deletion failed: ' + (error as any).message);
       } else {
         toast.success('Investment deleted and funds transferred');
         loadData();
       }
-    } catch (err: any) {
-      toast.error('Error: ' + err.message);
+    } catch (err: unknown) {
+      toast.error('Error: ' + (err as any).message);
     }
   };
 

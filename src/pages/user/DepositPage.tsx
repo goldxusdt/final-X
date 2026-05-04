@@ -163,7 +163,7 @@ export default function DepositPage() {
       const result = (Array.isArray(data) ? data[0] : data) as any;
 
       if (!result || !result.is_valid) {
-        toast.error(result?.error_message || 'Invalid or inactive coupon code');
+        toast.error(result?.error.message || 'Invalid or inactive coupon code');
         setAppliedCoupon(null);
       } else {
         // Fetch full coupon data to store in state if needed

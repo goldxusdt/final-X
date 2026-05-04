@@ -43,7 +43,7 @@ interface AuthContextType {
   ) => Promise<{ error: Error | null }>;
   signInWithGoogle: () => Promise<{ error: Error | null }>;
   verifyOTP: (email: string, token: string, purpose?: 'signup' | 'login' | 'password_reset') => Promise<{ error: Error | null }>;
-  resendOTP: (email: string, purpose?: 'signup' | 'login' | 'password_reset', userData?: any) => Promise<{ error: Error | null }>;
+  resendOTP: (email: string, purpose?: 'signup' | 'login' | 'password_reset', userData?: Record<string, unknown>) => Promise<{ error: Error | null }>;
   resetPassword: (email: string) => Promise<{ error: Error | null }>;
   signOut: () => Promise<void>;
   refreshProfile: () => Promise<void>;
@@ -99,7 +99,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       })
       .catch(error => {
         // @ts-ignore
-        toast.error(`Failed to get user session: ${error.message}`);
+        toast.error(`Failed to get user session: ${(error as any).message}`);
       })
       .finally(() => {
         setLoading(false);
@@ -308,11 +308,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
             outcome: 'failure',
             geolocation,
             device_fingerprint: fingerprint,
-            additional_details: { email, error: error.message }
+            additional_details: { email, error: (error as any).message }
           });
         }
         
-        if (error.message.includes('provider is not enabled') || error.message.includes('Unsupported provider')) {
+        if ((error as any).message.includes('provider is not enabled') || (error as any).message.includes('Unsupported provider')) {
           throw new Error('Email login is not currently enabled for this platform. Please contact support.');
         }
         throw error;
@@ -375,7 +375,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       });
 
       if (error) {
-        if (error.message.includes('provider is not enabled') || error.message.includes('Unsupported provider')) {
+        if ((error as any).message.includes('provider is not enabled') || (error as any).message.includes('Unsupported provider')) {
           throw new Error('Email registration is not currently enabled for this platform. Please contact support.');
         }
         throw error;
@@ -417,7 +417,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
       if (error) {
         // Provide more helpful error for disabled providers
-        if (error.message.includes('provider is not enabled') || error.message.includes('Unsupported provider')) {
+        if ((error as any).message.includes('provider is not enabled') || (error as any).message.includes('Unsupported provider')) {
           throw new Error('Google Sign-In is not currently enabled for this platform. Please enable it in the Supabase Dashboard using Client ID: 177188909353-25feb1b7el138ljg1r1ch1oc1j2g73cl.apps.googleusercontent.com');
         }
         throw error;
@@ -455,7 +455,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
   };
 
-  const resendOTP = async (email: string, purpose: 'signup' | 'login' | 'password_reset' = 'signup', userData?: any) => {
+  const resendOTP = async (email: string, purpose: 'signup' | 'login' | 'password_reset' = 'signup', userData?: Record<string, unknown>) => {
     try {
       const { data: sessionData } = await supabase.auth.getSession();
       const authToken = sessionData.session?.access_token;

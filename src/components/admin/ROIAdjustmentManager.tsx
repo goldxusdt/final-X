@@ -43,7 +43,7 @@ export function ROIAdjustmentManager() {
         .order('created_at', { ascending: false });
       if (error) throw error;
       setRoiAdjustments(data || []);
-    } catch (e: any) {
+    } catch (e: unknown) {
       toast.error('Failed to load ROI adjustments');
     }
   };
@@ -53,7 +53,7 @@ export function ROIAdjustmentManager() {
       const { data, error } = await supabase.from('profiles').select('id, email, full_name');
       if (error) throw error;
       setAllUsers(data || []);
-    } catch (e: any) {
+    } catch (e: unknown) {
       console.error('Failed to load users');
     }
   };
@@ -84,8 +84,8 @@ export function ROIAdjustmentManager() {
         target_value: ''
       });
       loadROIAdjustments();
-    } catch (e: any) {
-      toast.error('Failed to add adjustment: ' + e.message);
+    } catch (e: unknown) {
+      toast.error('Failed to add adjustment: ' + (e as any).message);
     } finally {
       setLoading(false);
     }
@@ -97,7 +97,7 @@ export function ROIAdjustmentManager() {
       if (error) throw error;
       toast.success('ROI adjustment deleted');
       loadROIAdjustments();
-    } catch (e: any) {
+    } catch (e: unknown) {
       toast.error('Failed to delete adjustment');
     }
   };
@@ -107,7 +107,7 @@ export function ROIAdjustmentManager() {
       const { error } = await (supabase.from('roi_adjustments') as any).update({ is_active: active }).eq('id', id);
       if (error) throw error;
       loadROIAdjustments();
-    } catch (e: any) {
+    } catch (e: unknown) {
       toast.error('Failed to update status');
     }
   };

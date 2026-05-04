@@ -15,7 +15,10 @@ import {
   UserBadge,
   MonthlyReward,
   InvestmentOption,
-  MediaFile
+  MediaFile,
+  BlogPost,
+  EventListing,
+  Announcement
 } from '@/types';
 
 
@@ -23,7 +26,7 @@ import {
  * Helper to translate content based on current language
  * (Simplified: Always returns item as-is since multi-language is disabled)
  */
-export function translateContent<T extends { translations?: any; content?: any }>(
+export function translateContent<T extends { translations?: unknown; content?: unknown }>(
   item: T, 
   _lang: string, 
   _fields: string[] = []
@@ -1167,7 +1170,7 @@ export async function getBlogPostBySlug(slug: string) {
   return data;
 }
 
-export async function createBlogPost(post: any, categoryIds?: string[], tagIds?: string[]) {
+export async function createBlogPost(post: Partial<BlogPost>, categoryIds?: string[], tagIds?: string[]) {
   const { data, error } = await supabase
     .from('blog_posts')
     .insert(post)
@@ -1191,7 +1194,7 @@ export async function createBlogPost(post: any, categoryIds?: string[], tagIds?:
   return data;
 }
 
-export async function updateBlogPost(id: string, updates: any, categoryIds?: string[], tagIds?: string[]) {
+export async function updateBlogPost(id: string, updates: Partial<BlogPost>, categoryIds?: string[], tagIds?: string[]) {
   const { data, error } = await supabase
     .from('blog_posts')
     .update(updates)
@@ -1281,7 +1284,7 @@ export async function getEventBySlug(slug: string) {
   return data;
 }
 
-export async function createEvent(event: any) {
+export async function createEvent(event: Partial<EventListing>) {
   const { data, error } = await supabase
     .from('events')
     .insert(event)
@@ -1292,7 +1295,7 @@ export async function createEvent(event: any) {
   return data;
 }
 
-export async function updateEvent(id: string, updates: any) {
+export async function updateEvent(id: string, updates: Partial<EventListing>) {
   const { data, error } = await supabase
     .from('events')
     .update(updates)
@@ -1488,7 +1491,7 @@ export async function getLandingPageSettings(lang?: string) {
   return data || [];
 }
 
-export async function updateLandingPageSection(sectionName: string, content: any) {
+export async function updateLandingPageSection(sectionName: string, content: unknown) {
   const { data, error } = await supabase
     .from('landing_page_settings')
     .update({ content, updated_at: new Date().toISOString() })
@@ -1701,7 +1704,7 @@ export const getFirewallRules = async () => {
   return data || [];
 };
 
-export const createFirewallRule = async (rule: any) => {
+export const createFirewallRule = async (rule: Record<string, unknown>) => {
   const { data, error } = await supabase.from('firewall_rules').insert([rule]).select();
   if (error) throw error;
   return data?.[0];
@@ -1795,8 +1798,8 @@ export const logLoginAttempt = async (attempt: {
   user_id?: string;
   success: boolean;
   ip_address: string;
-  geolocation?: any;
-  device_fingerprint?: any;
+  geolocation?: Record<string, unknown>;
+  device_fingerprint?: string;
 }) => {
   const { error } = await supabase.from('login_attempts').insert([attempt]);
   if (error) console.error('Failed to log login attempt:', error);
@@ -1821,7 +1824,7 @@ export async function getGlobalFAQs(activeOnly = true) {
   return data || [];
 }
 
-export async function createFAQ(faq: any) {
+export async function createFAQ(faq: Record<string, unknown>) {
   const { data, error } = await supabase
     .from('faqs')
     .insert(faq)
@@ -1830,7 +1833,7 @@ export async function createFAQ(faq: any) {
   return { data, error };
 }
 
-export async function updateFAQ(id: string, updates: any) {
+export async function updateFAQ(id: string, updates: Record<string, unknown>) {
   const { data, error } = await supabase
     .from('faqs')
     .update(updates)
@@ -1912,7 +1915,7 @@ export async function getAllAnnouncementsAdmin() {
   return data || [];
 }
 
-export async function createAnnouncement(announcement: any) {
+export async function createAnnouncement(announcement: Partial<Announcement>) {
   const { data, error } = await supabase
     .from('announcements')
     .insert(announcement)
@@ -1922,7 +1925,7 @@ export async function createAnnouncement(announcement: any) {
   return { data, error };
 }
 
-export async function updateAnnouncement(id: string, updates: any) {
+export async function updateAnnouncement(id: string, updates: Partial<Announcement>) {
   const { data, error } = await supabase
     .from('announcements')
     .update(updates)

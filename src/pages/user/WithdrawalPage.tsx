@@ -332,8 +332,8 @@ export default function WithdrawalPage() {
       loadBalances();
       loadActiveInvestments();
       loadWithdrawalHistory();
-    } catch (error: any) {
-      toast.error(error.message || 'Failed to submit withdrawal request');
+    } catch (error: unknown) {
+      toast.error((error as any).message || 'Failed to submit withdrawal request');
       console.error(error);
     } finally {
       setLoading(false);
@@ -364,7 +364,7 @@ export default function WithdrawalPage() {
       const result = (Array.isArray(data) ? data[0] : data) as any;
 
       if (!result || !result.is_valid) {
-        toast.error(result?.error_message || 'Invalid or inactive coupon code');
+        toast.error(result?.error.message || 'Invalid or inactive coupon code');
         setAppliedCoupon(null);
       } else {
         const { data: couponData } = await supabase

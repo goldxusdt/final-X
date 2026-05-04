@@ -37,7 +37,7 @@ export default function AdminInvestmentHistoryPage() {
 
       if (error) throw error;
       setHistory(data || []);
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error loading investment history:', error);
       toast.error('Failed to load investment history');
     } finally {

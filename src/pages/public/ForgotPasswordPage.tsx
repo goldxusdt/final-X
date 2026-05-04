@@ -51,8 +51,8 @@ export default function ForgotPasswordPage() {
 
       toast.success(data?.message || 'Verification code sent to your email. Please check your inbox.');
       setStep('otp');
-    } catch (error: any) {
-      toast.error(error.message || 'Failed to send OTP code');
+    } catch (error: unknown) {
+      toast.error((error as any).message || 'Failed to send OTP code');
       console.error(error);
     } finally {
       setLoading(false);
@@ -93,8 +93,8 @@ export default function ForgotPasswordPage() {
       setOtp('');
       setPassword('');
       setConfirmPassword('');
-    } catch (error: any) {
-      toast.error(error.message || 'Failed to reset password');
+    } catch (error: unknown) {
+      toast.error((error as any).message || 'Failed to reset password');
       console.error(error);
     } finally {
       setLoading(false);

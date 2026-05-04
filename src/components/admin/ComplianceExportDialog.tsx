@@ -68,9 +68,9 @@ export function ComplianceExportDialog({ onExportSuccess }: ComplianceExportDial
       toast.success('Report exported successfully');
       setOpen(false);
       if (onExportSuccess) onExportSuccess();
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Export failed:', error);
-      toast.error(error.message || 'Failed to export report');
+      toast.error((error as any).message || 'Failed to export report');
     } finally {
       setLoading(false);
     }

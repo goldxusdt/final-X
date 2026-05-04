@@ -60,13 +60,13 @@ export default function InvestmentPlansPage() {
     try {
       const { error } = await deleteUserInvestmentSelection(selection.id);
       if (error) {
-        toast.error('Deletion failed: ' + error.message);
+        toast.error('Deletion failed: ' + (error as any).message);
       } else {
         toast.success('Investment plan removed and funds transferred if applicable');
         loadData();
       }
-    } catch (err: any) {
-      toast.error('Deletion error: ' + err.message);
+    } catch (err: unknown) {
+      toast.error('Deletion error: ' + (err as any).message);
     } finally {
       setDeletingId(null);
     }

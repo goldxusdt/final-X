@@ -82,14 +82,14 @@ export default function WalletsPage() {
     try {
       const { error } = await swapWalletFunds(sourceWallet, amount);
       if (error) {
-        toast.error('Swap failed: ' + error.message);
+        toast.error('Swap failed: ' + (error as any).message);
       } else {
         toast.success('Funds swapped successfully');
         setSwapAmount('');
         loadData();
       }
-    } catch (err: any) {
-      toast.error('Swap error: ' + err.message);
+    } catch (err: unknown) {
+      toast.error('Swap error: ' + (err as any).message);
     } finally {
       setSwapping(false);
     }

@@ -30,14 +30,18 @@ export default defineConfig({
         manualChunks: (id) => {
           if (id.includes("node_modules")) {
             if (id.includes("react") || id.includes("react-dom") || id.includes("react-router")) {
-              return "vendor";
+              return "react-vendor";
             }
             if (id.includes("@supabase")) {
-              return "supabase";
+              return "supabase-vendor";
             }
-            if (id.includes("@radix-ui")) {
-              return "ui";
+            if (id.includes("@radix-ui") || id.includes("lucide-react") || id.includes("tailwind")) {
+              return "ui-vendor";
             }
+            if (id.includes("recharts") || id.includes("d3")) {
+              return "chart-vendor";
+            }
+            return "vendor";
           }
         },
       },

@@ -162,9 +162,9 @@ export default function AdvancedReferralPage() {
         downlineCount: Array.isArray(downlineData) ? downlineData.length : 0,
         statsCount: Array.isArray(statsData) ? statsData.length : 0
       });
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Failed to load referral data:', error);
-      toast.error(`Error: ${error.message || 'Failed to load referral data'}`);
+      toast.error(`Error: ${(error as any).message || 'Failed to load referral data'}`);
     } finally {
       setLoading(false);
     }

@@ -120,8 +120,8 @@ export default function LoginPage() {
 
       toast.success('Login successful! Welcome back.');
       navigate(from, { replace: true });
-    } catch (error: any) {
-      toast.error(error.message || 'An unexpected error occurred');
+    } catch (error: unknown) {
+      toast.error((error as any).message || 'An unexpected error occurred');
     } finally {
       setLoading(false);
     }
@@ -132,7 +132,7 @@ export default function LoginPage() {
     try {
       const { error } = await signInWithGoogle();
       if (error) {
-        toast.error(error.message);
+        toast.error((error as any).message);
       }
     } catch (error) {
       toast.error('An unexpected error occurred');

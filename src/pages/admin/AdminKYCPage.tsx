@@ -216,9 +216,9 @@ export default function AdminKYCPage() {
       setManualFiles({});
       setManualUserId('');
       loadUsers();
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Manual KYC upload failed:', error);
-      toast.error('Manual KYC upload failed: ' + error.message);
+      toast.error('Manual KYC upload failed: ' + (error as any).message);
     } finally {
       setUploading(false);
     }
